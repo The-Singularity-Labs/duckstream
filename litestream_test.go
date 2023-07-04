@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/benbjohnson/litestream"
-	_ "github.com/mattn/go-sqlite3"
+	_ "github.com/marcboeker/go-duckdb"
 )
 
 func TestChecksum(t *testing.T) {

@@ -636,7 +636,7 @@ func MustCloseDB(tb testing.TB, db *litestream.DB) {
 // MustOpenSQLDB returns a database/sql DB.
 func MustOpenSQLDB(tb testing.TB, path string) *sql.DB {
 	tb.Helper()
-	d, err := sql.Open("sqlite3", path)
+	d, err := sql.Open("duckdb", path)
 	if err != nil {
 		tb.Fatal(err)
 	} else if _, err := d.Exec(`PRAGMA journal_mode = wal;`); err != nil {

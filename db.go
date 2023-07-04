@@ -394,7 +394,7 @@ func (db *DB) init() (err error) {
 
 	// Connect to SQLite database. Use the driver registered with a hook to
 	// prevent WAL files from being removed.
-	if db.db, err = sql.Open("litestream-sqlite3", dsn); err != nil {
+	if db.db, err = sql.Open("litestream-duckdb", dsn); err != nil {
 		return err
 	}
 
@@ -1420,7 +1420,7 @@ func applyWAL(ctx context.Context, index int, dbPath string) error {
 	}
 
 	// Open SQLite database and force a truncating checkpoint.
-	d, err := sql.Open("litestream-sqlite3", dbPath)
+	d, err := sql.Open("litestream-duckdb", dbPath)
 	if err != nil {
 		return err
 	}
